@@ -4,6 +4,8 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+
+        // Twitter API
         var inputVal = $("#inlineFormInput").val().trim();
         var queryURL = "https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q="
             + inputVal + "&result_type=popular";
@@ -15,16 +17,13 @@ $(document).ready(function () {
                 'Authorization': 'Bearer ' + apiToken
             }
         }).then(function (response) {
-
             console.log(response);
-            //https://twitter.com/realDonaldTrump/status/989225812166696960
-            console.log(response.statuses[0]);
-
             var results = response.statuses;
+
             for (var i = 0; i < results.length; i++) {
                 var screen_name = response.statuses[i].user.screen_name;
-                console.log(screen_name);
                 var id_str = response.statuses[i].id_str;
+
                 $.ajax({
                     method: 'GET',
                     url: 'https://cors-anywhere.herokuapp.com/https://publish.twitter.com/oembed?url=https://twitter.com/' + screen_name + '/status/' + id_str
@@ -32,11 +31,28 @@ $(document).ready(function () {
                     $('#twitter-body').append(response.html);
                     console.log(twttr);
                     twttr.widgets.load(document.getElementById('twitter-body'))
-                    console.log('response: ', response);
-
                 })
             }
         });
+
+        // Weather API
+        var APIKey = "166a433c57516f51dfab1f7edaed8413";
+        var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + inputVal + "&units=imperial&appid=" + APIKey;
+
+        $.ajax({
+            url: weatherURL,
+            method: "GET"
+        })
+            .then(function (response) {
+                console.log(weatherURL);
+                console.log(response);
+
+                $("#weather-body").append("<h1>" + response.name + " Weather Details</h1> <br> Conditions: " + response.weather[0].main + "<br> Temperature (F): " + response.main.temp + "<br> Wind: " + response.wind.speed + "<br> Humidity: " + response.main.humidity);
+
+                console.log("Wind Speed: " + response.wind.speed);
+                console.log("Humidity: " + response.main.humidity);
+                console.log("Temperature (F): " + response.main.temp);
+            });
 
     });
 
