@@ -5,6 +5,13 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        var inputVal = $("#inlineFormInput").val().trim();
+        if (typeof(inputVal) == 'string') {
+            displayContent();
+        }
+    });
+
+    function displayContent() {
         $("#flicker-body").empty();
         $("#twitter-body").empty();
         $("#sygic-body").empty();
@@ -84,8 +91,9 @@ $(document).ready(function () {
                 }
 
             });
+    
 
-
-    });
+    }
 
 });
+
