@@ -4,6 +4,10 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        $("#flicker-body").empty();
+        $("#twitter-body").empty();
+        $("#sygic-body").empty();
+        $("#weather-body").empty();
 
         // Twitter API
         var inputVal = $("#inlineFormInput").val().trim();
@@ -52,8 +56,39 @@ $(document).ready(function () {
                 console.log("Wind Speed: " + response.wind.speed);
                 console.log("Humidity: " + response.main.humidity);
                 console.log("Temperature (F): " + response.main.temp);
+
             });
+
+
+        var queryURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=c185f95eeeb54ebb5bebe6e4467cd40a&tags=' + inputVal + '&per_page=9&format=json&nojsoncallback=1';
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+        })
+
+            .then(function (response) {
+                console.log(response);
+                //console.log(queryURL);
+
+                var results = response.photos.photo;
+                for (var i = 0; i < results.length; i++) {
+                    var flickrImage = $('<img>').addClass("imgSpace");
+                    flickrImage.attr({ 'src': `https://farm${response.photos.photo[i].farm}.staticflickr.com/${response.photos.photo[i].server}/${response.photos.photo[i].id}_${response.photos.photo[i].secret}.jpg` })
+
+                    $('#flicker-body').append(flickrImage);
+
+                    console.log(results);
+                    console.log(flickrImage);
+
+                }
+
+            });
+
+        $('html,body').animate({
+            scrollTop: $("#flicker-body").offset().top
+        },
+            'slow');
 
     });
 
-})
+});
