@@ -5,6 +5,10 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+        $("#flicker-body").empty();
+        $("#twitter-body").empty();
+        $("#sygic-body").empty();
+        $("#weather-body").empty();
 
         // Twitter API
         var inputVal = $("#inlineFormInput").val().trim();
@@ -48,7 +52,7 @@ $(document).ready(function () {
                 console.log(weatherURL);
                 console.log(response);
 
-                $("#weather-body").append("<h1>" + response.name + " Weather Details</h1> <br> Conditions: " + response.weather[0].main + "<br> Temperature (F): " + response.main.temp + "<br> Wind: " + response.wind.speed + "<br> Humidity: " + response.main.humidity);
+                $("#weather-body").append("<h1>Weather in " + response.name + "</h1> <br> Conditions: " + response.weather[0].main + "<br> Temperature (F): " + response.main.temp + "<br> Wind: " + response.wind.speed + "<br> Humidity: " + response.main.humidity);
 
                 console.log("Wind Speed: " + response.wind.speed);
                 console.log("Humidity: " + response.main.humidity);
