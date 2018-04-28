@@ -56,8 +56,8 @@ $(document).ready(function () {
 
             });
 
-        var userInput = $('#inlineFormInput').val().trim();
-        var queryURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=c185f95eeeb54ebb5bebe6e4467cd40a&tags=' + userInput + '&per_page=3&format=json&nojsoncallback=1';
+
+        var queryURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=c185f95eeeb54ebb5bebe6e4467cd40a&tags=' + inputVal + '&per_page=3&format=json&nojsoncallback=1';
         $.ajax({
             url: queryURL,
             method: 'GET'
