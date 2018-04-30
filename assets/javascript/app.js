@@ -8,18 +8,27 @@ $(document).ready(function () {
         var inputVal = $("#inlineFormInput").val().trim();
         // validation
         if (typeof (inputVal) == 'string') {
-            displayContent();
+            displayContent(inputVal);
         }
     });
 
-    function displayContent() {
+    $(".suggestedCity").on("click", function (event) {
+        event.preventDefault();
+        var inputVal = $(this).attr("id");
+        // validation
+        if (typeof (inputVal) == 'string') {
+            displayContent(inputVal);
+        }
+    });
+
+    function displayContent(city) {
         $("#flicker-body").empty();
         $("#twitter-body").empty();
         $("#sygic-body").empty();
         $("#weather-body").empty();
 
         // Twitter API
-        var inputVal = $("#inlineFormInput").val().trim();
+        var inputVal = city;
         var queryURL = "https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q="
             + inputVal + "&result_type=popular";
 
@@ -63,17 +72,31 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: 'GET'
-        }).then(function (response) {
-            var results = response.photos.photo;
-            for (var i = 0; i < results.length; i++) {
-                var flickrImage = $('<img>');
-                flickrImage.attr({ 'src': `https://farm${response.photos.photo[i].farm}.staticflickr.com/${response.photos.photo[i].server}/${response.photos.photo[i].id}_${response.photos.photo[i].secret}.jpg` })
+        })
+
+            .then(function (response) {
+                console.log(response);
+                //console.log(queryURL);
+
+                var results = response.photos.photo;
+                for (var i = 0; i < results.length; i++) {
+                    var flickrImage = $('<img>').addClass("imgSpace");
+                    flickrImage.attr({ 'src': `https://farm${response.photos.photo[i].farm}.staticflickr.com/${response.photos.photo[i].server}/${response.photos.photo[i].id}_${response.photos.photo[i].secret}.jpg` })
+
+                    $('#flicker-body').append(flickrImage);
+
+                    console.log(results);
+                    console.log(flickrImage);
 
                 $('#flicker-body').append(flickrImage);
             }
 
         });
 
+        $('html,body').animate({
+            scrollTop: $("#flicker-body").offset().top
+        },
+            'slow');
 
     }
 
