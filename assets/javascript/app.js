@@ -1,10 +1,13 @@
 $(document).ready(function () {
+ 
 
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+
+
         var inputVal = $("#inlineFormInput").val().trim();
         // validation
         if (typeof (inputVal) == 'string') {
@@ -85,6 +88,7 @@ $(document).ready(function () {
         });
 
         $('html,body').animate({
+            scrollTop:setInterval(8000),
             scrollTop: $("#flicker-body").offset().top
         },
             'slow');

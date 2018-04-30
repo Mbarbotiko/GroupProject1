@@ -27,3 +27,21 @@ button {
     text-align: center;
 }
 
+#donna, #whatever{
+    position: absolute;
+    left:750px;
+    top:150px;
+    z-index:-1;
+    width:200px;
+}
+
+#thumbsup{
+    position: absolute;
+    left:780px;
+    top:125px;
+    z-index:-1;
+    width:200px;
+}
+
+
+
