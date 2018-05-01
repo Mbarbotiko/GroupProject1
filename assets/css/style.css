@@ -78,6 +78,23 @@ button {
     text-align: center;
 }
 
+#twitter-body {
+    width: 100%;
+    display: inline-block;
+}
+
+#carouselExampleControls {
+    width: 100%;
+}
+
+.autocomplete-suggestions {
+    background: #FFF; overflow: auto;
+ }
+
+ .autocomplete-selected {
+    background: #F0F0F0;
+ }
+
 #carouselExampleControls {
     padding: 50px;
     width: 100%;
