@@ -1,5 +1,7 @@
+
 $(document).ready(function () {
- 
+    $('#whatever').hide();
+    $('#thumbsup').hide();
 
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
@@ -11,18 +13,27 @@ $(document).ready(function () {
         var inputVal = $("#inlineFormInput").val().trim();
         // validation
         if (typeof (inputVal) == 'string') {
-            displayContent();
+            displayContent(inputVal);
         }
     });
 
-    function displayContent() {
+    $(".suggestedCity").on("click", function (event) {
+        event.preventDefault();
+        var inputVal = $(this).attr("id");
+        // validation
+        if (typeof (inputVal) == 'string') {
+            displayContent(inputVal);
+        }
+    });
+
+    function displayContent(city) {
         $("#flicker-body").empty();
         $("#twitter-body").empty();
         $("#sygic-body").empty();
         $("#weather-body").empty();
 
         // Twitter API
-        var inputVal = $("#inlineFormInput").val().trim();
+        var inputVal = city;
         var queryURL = "https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q="
             + inputVal + "&result_type=popular";
 
@@ -96,4 +107,3 @@ $(document).ready(function () {
     }
 
 });
-

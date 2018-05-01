@@ -1,3 +1,54 @@
+
+ h2, h3,  {
+    text-align: center;
+    
+}
+
+.question, #results {
+    display: none;
+    text-align: center
+    }
+
+.button li {
+    border: 1px solid;
+    border-radius: 1px;
+    background-color: #eee;
+    text-align: center;
+    line-height: 2em;
+    padding: 0.2em;
+    margin: 0.8em;
+    width: 30%;
+    margin: 0 auto;
+    list-style: none;
+
+}
+
+.button li:hover {
+    color: #bfbfbf;
+    background-color: #555;
+    text-align: center
+}
+
+#intro, .question, #results {
+	max-width: 640px;
+    margin: 3em auto;
+    text-align: center
+}
+
+#beginquiz {
+    border: 1px solid;
+    border-radius: 3px;
+    background-color: #eee;
+    text-align: center;
+    line-height: 2em;
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 20em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
 button {
     margin-right: 2px;
 }
@@ -27,6 +78,7 @@ button {
     text-align: center;
 }
 
+
 #donna, #whatever{
     position: absolute;
     left:750px;
@@ -42,6 +94,4 @@ button {
     z-index:-1;
     width:200px;
 }
-
-
 
