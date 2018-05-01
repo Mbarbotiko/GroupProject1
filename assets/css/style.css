@@ -78,14 +78,13 @@ button {
     text-align: center;
 }
 
-<<<<<<< HEAD
 #carouselExampleControls {
     padding: 100px;
 }
 
 .carousel {
     height: 260px;
-=======
+}
 
 #donna, #whatever{
     position: absolute;
@@ -101,6 +100,5 @@ button {
     top:125px;
     z-index:-1;
     width:200px;
->>>>>>> 04067c05b226168cb7f70f935296cd240e1a7be8
 }
 

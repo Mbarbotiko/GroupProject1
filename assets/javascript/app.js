@@ -1,12 +1,8 @@
 
 $(document).ready(function () {
-<<<<<<< HEAD
-    
-=======
     $('#whatever').hide();
     $('#thumbsup').hide();
 
->>>>>>> 04067c05b226168cb7f70f935296cd240e1a7be8
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
 
