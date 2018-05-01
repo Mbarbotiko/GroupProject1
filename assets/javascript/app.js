@@ -1,16 +1,41 @@
+//Firebase here
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBQB6gGX9XbIKXspeGRtn1nseutybu-TKc",
+    authDomain: "groupprojectsearch.firebaseapp.com",
+    databaseURL: "https://groupprojectsearch.firebaseio.com",
+    projectId: "groupprojectsearch",
+    storageBucket: "groupprojectsearch.appspot.com",
+    messagingSenderId: "143073438718"
+  };
+firebase.initializeApp(config);
+
+
 $(document).ready(function () {
+    $('#whatever').hide();
+    $('#thumbsup').hide();
 
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
+    //variable to reference the database
+    var database = firebase.database();
+    //Initial Value
+    var submit = "";
+
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
+
+        submit = $("#autocomplete").val().trim();
+        database.ref().push({
+            submit: submit
+        });
         var inputVal = $("#autocomplete").val().trim();
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
         }
-    });
+   });
 
     $(".suggestedCity").on("click", function (event) {
         event.preventDefault();
@@ -21,6 +46,11 @@ $(document).ready(function () {
         }
     });
 
+    database.ref().on("value", function (snapshot){
+        console.log(snapshot.val());
+        console.log(snapshot.val().submit);
+    })
+   
     function displayContent(city) {
         $("#flicker-body").empty();
         $("#twitter-body").empty();
@@ -94,6 +124,7 @@ $(document).ready(function () {
             });
 
         $('html,body').animate({
+            scrollTop:setInterval(8000),
             scrollTop: $("#flicker-body").offset().top
         },
             'slow');
@@ -116,4 +147,3 @@ $(document).ready(function () {
     });
 
 });
-
