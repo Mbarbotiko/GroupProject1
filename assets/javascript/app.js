@@ -26,11 +26,11 @@ $(document).ready(function () {
     $("#submit").on("click", function (event) {
         event.preventDefault();
 
-        submit = $("#inlineFormInput").val().trim();
+        submit = $("#autocomplete").val().trim();
         database.ref().push({
             submit: submit
         });
-        var inputVal = $("#inlineFormInput").val().trim();
+        var inputVal = $("#autocomplete").val().trim();
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
@@ -118,10 +118,10 @@ $(document).ready(function () {
                     console.log(results);
                     console.log(flickrImage);
 
-                $('#flicker-body').append(flickrImage);
-            }
+                    $('#flicker-body').append(flickrImage);
+                }
 
-        });
+            });
 
         $('html,body').animate({
             scrollTop:setInterval(8000),
@@ -130,5 +130,20 @@ $(document).ready(function () {
             'slow');
 
     }
+
+
+    var countriesArray = $.map(countries, function (value, key) { return { value: value, data: key }; });
+
+    $('#autocomplete').autocomplete({
+        // serviceUrl: '/autosuggest/service/url',
+        lookup: countriesArray,
+        lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
+            var re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi');
+            return re.test(suggestion.value);
+        },
+        onSelect: function (suggestion) {
+            $('#selction-ajax').html('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        }
+    });
 
 });
