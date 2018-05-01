@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
 
@@ -20,6 +20,10 @@ $(document).ready(function () {
             displayContent(inputVal);
         }
     });
+
+    function startQuiz() {
+        window.open("quiz.html");
+    }
 
     function displayContent(city) {
         $("#flicker-body").empty();
