@@ -80,6 +80,11 @@ button {
 
 #carouselExampleControls {
     padding: 50px;
+    width: 100%;
+}
+
+.carousel-item {
+    height: 300px;
 }
 
 
