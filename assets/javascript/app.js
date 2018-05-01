@@ -50,6 +50,11 @@ $(document).ready(function () {
         console.log(snapshot.val());
         console.log(snapshot.val().submit);
     })
+
+    $("#quiz").on("click", function (event) {
+        event.preventDefault();
+        window.open("quiz.html");
+    });
    
     function displayContent(city) {
         $("#flicker-body").empty();
