@@ -28,7 +28,8 @@ button {
 }
 
 #twitter-body {
-    float: left;
+    width: 100%;
+    display: inline-block;
 }
 
 #carouselExampleControls {
