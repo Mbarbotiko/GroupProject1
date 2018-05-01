@@ -10,12 +10,12 @@ function startQuiz() {
     var userAnswer = {		
         //object store quiz answers. a value of 1 is given to each location when an answer associated with the location is clicked. 
         "California": { score: 0 },
-        "Bahamas": { score: 0 },
+        "Mexico": { score: 0 },
         "Italy": { score: 0 },
         "Iceland": { score: 0 }
     };
-    
-    var buttons = document.querySelectorAll(".button");	
+
+    var buttons = document.querySelectorAll(".button");
     // for the button elements
         
     for (var i = 0 ; i < buttons.length ; i++) {	
@@ -88,5 +88,6 @@ function startQuiz() {
        //use return to stop the function and show the result
         //use values of the "score" to compare other scores. The location with the highest score will be the answer. 
         return theLocation;
-    }
-    
+    };
+
+
