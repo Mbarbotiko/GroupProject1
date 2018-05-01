@@ -12,6 +12,8 @@ firebase.initializeApp(config);
 
 
 $(document).ready(function () {
+    $('#whatever').hide();
+    $('#thumbsup').hide();
 
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
@@ -122,6 +124,7 @@ $(document).ready(function () {
         });
 
         $('html,body').animate({
+            scrollTop:setInterval(8000),
             scrollTop: $("#flicker-body").offset().top
         },
             'slow');
@@ -129,4 +132,3 @@ $(document).ready(function () {
     }
 
 });
-
