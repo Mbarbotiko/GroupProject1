@@ -27,3 +27,19 @@ button {
     text-align: center;
 }
 
+#twitter-body {
+    float: left;
+}
+
+#carouselExampleControls {
+    width: 100%;
+}
+
+.autocomplete-suggestions {
+    background: #FFF; overflow: auto;
+ }
+
+ .autocomplete-selected {
+    background: #F0F0F0;
+ }
+
