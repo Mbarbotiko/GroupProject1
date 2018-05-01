@@ -9,7 +9,7 @@ $(document).ready(function () {
     var answerData = {
         //object stores quiz answers. a value of 1 is given to each location when an answer associated with the location is clicked. 
         "California": { score: 0 },
-        "Bahamas": { score: 0 },
+        "Mexico": { score: 0 },
         "Italy": { score: 0 },
         "Iceland": { score: 0 }
     };
@@ -56,22 +56,25 @@ $(document).ready(function () {
         }
         //block allows combined statements. This allows questions and results to be displayed. 
 
-        document.getElementById("finalResulthere").innerHTML = "<h1>You should go to " + finalResults() + "!</h1>";
+        document.getElementById("finalResulthere").innerHTML = "<h1>You should go to...</h1>";
         // Post the final results to the appropriate result div. Shows user where they should go based on answers.
 
         if (document.getElementById("results").style.display == "block") {
             //these are the results for the quiz.
 
-            if (finalResults == "California") {
+            if (finalResults() == "California") {
+                $("#California").show();
+            }
+            if (finalResults() == "Mexico") {
+                $("#Mexico").show();
 
             }
-            else if (finalResults == "the Bahamas") {
+            if (finalResults() == "Italy") {
+                $("#Italy").show();
 
             }
-            else if (finalResults == "Italy") {
-
-            }
-            else if (finalResults == "Iceland") {
+            if (finalResults() == "Iceland") {
+                $("#Iceland").show();
 
             }
         }
@@ -79,7 +82,6 @@ $(document).ready(function () {
 
     function finalResults() {
         // Get the values of the answers object 
-
         var theAnswer = Object.keys(answerData).reduce(function (a, b) { return answerData[a].score > answerData[b].score ? a : b });
         //search for how to score personality test, rather than a typical quiz. 
         return theAnswer;
