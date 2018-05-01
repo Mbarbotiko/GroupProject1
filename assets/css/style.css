@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
  h2, h3,  {
     text-align: center;
@@ -49,3 +50,34 @@
 }
 
 
+=======
+button {
+    margin-right: 2px;
+}
+
+.vertical-center {
+    min-height: 100vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imgSpace {
+    margin: 5px;
+    width:  300px;
+    height: 300px;
+}
+
+#flicker-body {
+    justify-content: center;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.main-body {
+    padding: 30px;
+    text-align: center;
+}
+
+>>>>>>> 7942937447c6d5ce8128b1b6dd56513f8a330533
