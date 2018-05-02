@@ -1,4 +1,3 @@
-
  h2, h3,  {
     text-align: center;
     
@@ -76,11 +75,13 @@ button {
 .main-body {
     padding: 30px;
     text-align: center;
+    justify-content: center;
 }
 
 #twitter-body {
     width: 100%;
-    display: inline-block;
+    text-align: center;
+    justify-content: center;
 }
 
 #carouselExampleControls {
@@ -114,4 +115,8 @@ button {
     top:125px;
     z-index:-1;
     width:200px;
+}
+
+.twitter-tweet{
+    margin: 5 0 5 0;
 }

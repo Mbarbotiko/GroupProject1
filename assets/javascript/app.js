@@ -1,13 +1,13 @@
 //Firebase here
-  // Initialize Firebase
-  var config = {
+// Initialize Firebase
+var config = {
     apiKey: "AIzaSyBQB6gGX9XbIKXspeGRtn1nseutybu-TKc",
     authDomain: "groupprojectsearch.firebaseapp.com",
     databaseURL: "https://groupprojectsearch.firebaseio.com",
     projectId: "groupprojectsearch",
     storageBucket: "groupprojectsearch.appspot.com",
     messagingSenderId: "143073438718"
-  };
+};
 firebase.initializeApp(config);
 
 
@@ -35,7 +35,7 @@ $(document).ready(function () {
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
         }
-   });
+    });
 
     $(".suggestedCity").on("click", function (event) {
         event.preventDefault();
@@ -46,11 +46,11 @@ $(document).ready(function () {
         }
     });
 
-    database.ref().on("value", function (snapshot){
+    database.ref().on("value", function (snapshot) {
         console.log(snapshot.val());
         console.log(snapshot.val().submit);
     })
-   
+
     function displayContent(city) {
         $("#flicker-body").empty();
         $("#twitter-body").empty();
@@ -70,6 +70,7 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             var results = response.statuses;
+            console.log(response)
 
             for (var i = 0; i < results.length; i++) {
                 var screen_name = response.statuses[i].user.screen_name;
@@ -80,7 +81,7 @@ $(document).ready(function () {
                     url: 'https://cors-anywhere.herokuapp.com/https://publish.twitter.com/oembed?url=https://twitter.com/' + screen_name + '/status/' + id_str
                 }).then(function (response) {
                     $('#twitter-body').append(response.html);
-                    console.log(twttr);
+                    console.log(response.html);
                     twttr.widgets.load(document.getElementById('twitter-body'))
                 })
             }
@@ -123,8 +124,9 @@ $(document).ready(function () {
 
             });
 
+        // Smoothly scroll to flicker-body on submit
         $('html,body').animate({
-            scrollTop:setInterval(8000),
+            scrollTop: setInterval(8000),
             scrollTop: $("#flicker-body").offset().top
         },
             'slow');
