@@ -34,6 +34,7 @@ $(document).ready(function () {
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
+            displaySygic(inputVal);
         }
     });
 
@@ -43,6 +44,7 @@ $(document).ready(function () {
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
+            displaySygic(inputVal);
         }
     });
 
@@ -50,6 +52,17 @@ $(document).ready(function () {
         console.log(snapshot.val());
         console.log(snapshot.val().submit);
     })
+
+    $("#quiz").on("click", function (event) {
+        event.preventDefault();
+        window.open("quiz.html");
+    });
+
+    $('html,body').animate({
+        scrollTop: setInterval(8000),
+        scrollTop: $("#flicker-body").offset().top
+    },
+        'slow');
 
     function displayContent(city) {
         $("#flicker-body").empty();
@@ -124,15 +137,18 @@ $(document).ready(function () {
 
             });
 
-        // Smoothly scroll to flicker-body on submit
-        $('html,body').animate({
-            scrollTop: setInterval(8000),
-            scrollTop: $("#flicker-body").offset().top
-        },
-            'slow');
-
     }
 
+    function displaySygic(city) {
+        var sygicFrame = $("<iframe>").attr({
+            "src": "https://guides.travel.sygic.com/production/en/" + city + "/",
+            "width": "100%",
+            "height": "500",
+            "frameborder": "0"
+        });
+
+        $("#sygic-body").append(sygicFrame);
+    }
 
     var countriesArray = $.map(countries, function (value, key) { return { value: value, data: key }; });
 
