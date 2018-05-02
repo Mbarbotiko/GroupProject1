@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--In the head shows the links and folders that the html is linked to. The page title is also here.-->
+<!--In the head shows the links and folders that the html is linked to. The page title is also here."travel quiz"-->
 
 <head>
     <meta charset="UTF-8">
@@ -18,16 +18,26 @@
         <div id="beginquiz">Start the quiz</div>
     </div>
 
+<!-- data attribute to match with specific elements with no real meaning visually but have information to use. (W3)  -->
+<!-- could use DOM, or Node.setUserData().?? -->
+<!-- using data attr here..go to next question with parent elemeent(W3?)  -->
+<!-- make sure that data next is the actual next question -->
     <div class="question" id="question1" data-next="question2">
+        <!-- question goes here -->
+        <!-- make a travel location that is associated with a specfic answer. Cali will always = family. One answer per location. Ever location needs an answer per question -->
         <h3>Which kind of trip are you looking for?</h3>
+        <!-- make questions into list -->
         <ol class="button">
+        <!-- buttons with an answer on each one. want new question after button is pressed -->
+        <!-- give answer a +1 if clicked. Result is whatever location has the highest score (clicked the most). -->
+        <!-- using data score like data next gives element meanin/associate score with answer. -->
             <li data-score="California">Family</li>
             <li data-score="Mexico">Relaxation</li>
             <li data-score="Italy">Romantic</li>
             <li data-score="Iceland">Adventure</li>
         </ol>
     </div>
-
+  <!-- REPEAT this ^^^ for each question -->
     <div class="question" id="question2" data-next="question3">
         <h3>What is your budget?</h3>
         <ol class="button">
@@ -58,7 +68,7 @@
             <li data-score="Iceland">Adventurous</li>
         </ol>
     </div>
-
+    <!-- Last question. Data next needs to = results to show the results -->
     <div class="question" id="question5" data-next="results">
         <h3>Which one?</h3>
         <ol class="button">
@@ -69,6 +79,7 @@
         </ol>
     </div>
 
+    <!--results attr -->
     <div id="results">
         <div id="finalResulthere">
         </div>
