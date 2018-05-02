@@ -146,7 +146,7 @@ $(document).ready(function () {
             "height": "500",
             "frameborder": "0"
         });
-        
+
         $("#sygic-body").append(sygicFrame);
     }
 
