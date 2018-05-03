@@ -4,6 +4,8 @@
     
 }
 
+
+
 .question, #results {
     display: none;
     text-align: center
@@ -104,19 +106,25 @@ button {
     height: 300px;
 }
 
+.suggestedCity{
+    width:100%;
+    
+}
 
-#donna, #whatever{
-    position: absolute;
-    left:750px;
-    top:150px;
+.suggestedCity:hover { 
+    cursor:pointer;
+}
+
+
+
+#donna, #whatever, #thumbsup{
+    position: relative;
+    left:10%;
+    top:-300px;
     z-index:-1;
     width:200px;
 }
 
-#thumbsup{
-    position: absolute;
-    left:780px;
-    top:125px;
-    z-index:-1;
-    width:200px;
+#carouselExampleControls h1{
+    text-align: center;
 }
