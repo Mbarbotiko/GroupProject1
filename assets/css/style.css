@@ -85,7 +85,7 @@ button {
     width: 100%;
     text-align: center;
     justify-content: center;
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 #carouselExampleControls {
@@ -137,7 +137,5 @@ button {
     margin: 10px !important;
     width: 30% !important;
     height: 40% !important;
-    text-align: center;
-    justify-content: center;
 }
 
