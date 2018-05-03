@@ -16,6 +16,7 @@ $(document).ready(function () {
     $('#thumbsup').show();
     $('#donna').hide();
 
+
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
     //variable to reference the database
@@ -41,11 +42,14 @@ $(document).ready(function () {
             displayContent(inputVal);
             displaySygic(inputVal);
         }
+        // $("a").error(function () {
+        //     $(this).hide();
+        // });this is for hiding broken links doesnt work yet.
     });
 
     $(".suggestedCity").on("click", function (event) {
         event.preventDefault();
-        
+
         var inputVal = $(this).attr("id");
         // validation
         if (typeof (inputVal) == 'string') {
@@ -53,7 +57,7 @@ $(document).ready(function () {
             displaySygic(inputVal);
         }
 
-        
+
     });
 
     database.ref().on("value", function (snapshot) {
@@ -61,7 +65,7 @@ $(document).ready(function () {
         console.log(snapshot.val().submit);
     })
 
- 
+
 
 
     $("#quiz").on("click", function (event) {
