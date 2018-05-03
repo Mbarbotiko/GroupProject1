@@ -8,13 +8,14 @@ var config = {
     storageBucket: "groupprojectsearch.appspot.com",
     messagingSenderId: "143073438718"
 };
-
 firebase.initializeApp(config);
 
 
 $(document).ready(function () {
     $('#whatever').hide();
-    $('#thumbsup').hide();
+    $('#thumbsup').show();
+    $('#donna').hide();
+
 
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
@@ -26,7 +27,11 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
-
+        $('html,body').animate({
+            scrollTop: setInterval(8000),
+            scrollTop: $("#flicker-body").offset().top
+        },
+            'slow');
         submit = $("#autocomplete").val().trim();
         database.ref().push({
             submit: submit
@@ -37,16 +42,22 @@ $(document).ready(function () {
             displayContent(inputVal);
             displaySygic(inputVal);
         }
+        // $("a").error(function () {
+        //     $(this).hide();
+        // });this is for hiding broken links doesnt work yet.
     });
 
     $(".suggestedCity").on("click", function (event) {
         event.preventDefault();
+
         var inputVal = $(this).attr("id");
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
             displaySygic(inputVal);
         }
+
+
     });
 
     database.ref().on("value", function (snapshot) {
@@ -54,16 +65,14 @@ $(document).ready(function () {
         console.log(snapshot.val().submit);
     })
 
+
+
+
     $("#quiz").on("click", function (event) {
         event.preventDefault();
         window.open("quiz.html");
     });
 
-    $('html,body').animate({
-        scrollTop: setInterval(8000),
-        scrollTop: $("#flicker-body").offset().top
-    },
-        'slow');
 
     function displayContent(city) {
         $("#flicker-body").empty();
@@ -84,6 +93,7 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             var results = response.statuses;
+            console.log(response)
 
             for (var i = 0; i < results.length; i++) {
                 var screen_name = response.statuses[i].user.screen_name;
@@ -94,7 +104,7 @@ $(document).ready(function () {
                     url: 'https://cors-anywhere.herokuapp.com/https://publish.twitter.com/oembed?url=https://twitter.com/' + screen_name + '/status/' + id_str
                 }).then(function (response) {
                     $('#twitter-body').append(response.html);
-                    console.log(twttr);
+                    console.log(response.html);
                     twttr.widgets.load(document.getElementById('twitter-body'))
                 })
             }
@@ -142,8 +152,8 @@ $(document).ready(function () {
     function displaySygic(city) {
         var sygicFrame = $("<iframe>").attr({
             "src": "https://guides.travel.sygic.com/production/en/" + city + "/",
-            "width": "100%",
-            "height": "500",
+            "width": "65%",
+            "height": "800",
             "frameborder": "0"
         });
 
