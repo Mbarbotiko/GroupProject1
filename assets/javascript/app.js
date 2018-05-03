@@ -142,8 +142,8 @@ $(document).ready(function () {
     function displaySygic(city) {
         var sygicFrame = $("<iframe>").attr({
             "src": "https://guides.travel.sygic.com/production/en/" + city + "/",
-            "width": "100%",
-            "height": "500",
+            "width": "65%",
+            "height": "1500",
             "frameborder": "0"
         });
 
