@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-function startQuiz() {	
-    // When the button is clicked the quiz starts and the first question is shown. All other questions are hidden. Do one question at a time.  
-    document.getElementById("intro").style.display = "none"; 
-     //use block scope for everything inside curly crackets. acts like function.
-        document.getElementById("question1").style.display = "block";
-    }
-    
-    document.getElementById("beginquiz").addEventListener("click", startQuiz);
-    //event listener for "start quiz" button
-    var userAnswer = {		
-=======
-=======
->>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
 $(document).ready(function () {
     $('#California').hide();
     $('#Italy').hide();
@@ -29,10 +14,6 @@ $(document).ready(function () {
     document.getElementById("beginquiz").addEventListener("click", startQuiz);
     //event listener for "start quiz" button
     var userAnswer = {
-<<<<<<< HEAD
->>>>>>> e59b618c81e16b6c73c8e0a83f67d5672e2598c2
-=======
->>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
         //object store quiz answers. a value of 1 is given to each location when an answer associated with the location is clicked. 
         "California": { score: 0 },
         "Mexico": { score: 0 },
@@ -42,35 +23,6 @@ $(document).ready(function () {
 
     var buttons = document.querySelectorAll(".button");
     // for the button elements
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
-    for (var i = 0 ; i < buttons.length ; i++) {	
-        buttons[i].onclick = buttonClicked;	
-         //if a button is clicked the buttonClicked function is called
-        }
-    
-    function buttonClicked(event) {	
-        //target event property returns the element that triggered the event (W3)
-        //diaplys answers and results after. 
-        // button click to answer the questions
-    
-        var getValue = event.target; 	
-        
-        console.log(getValue); 
-    
-        var selectedType = getValue.dataset.score;
-        // Get the value score from user answer	
-        console.log(selectedType);	
-        userAnswer[selectedType].score++;	// add 1 to user score
-        
-        this.parentElement.style.display = "none";	
-        // .parentElement property -- for clicking on answer (element) to hide parent elements (everything else in the question) and chanegs to next question. 
-        // Hidequestions in the div
-        var nextQuestion = this.parentElement.dataset.next;		
-=======
-=======
->>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
 
     for (var i = 0 ; i < buttons.length ; i++) {
         buttons[i].onclick = buttonClicked;
@@ -95,65 +47,10 @@ $(document).ready(function () {
         // .parentElement property -- for clicking on answer (element) to hide parent elements (everything else in the question) and chanegs to next question.
         // Hidequestions in the div
         var nextQuestion = this.parentElement.dataset.next;
-<<<<<<< HEAD
->>>>>>> e59b618c81e16b6c73c8e0a83f67d5672e2598c2
-=======
->>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
         // shows next question in teh div when previous question is answered
         //associated with data-next html. this.parentElement uses Data attr gets the next question (parent). (W3)
         // getattribute instead?
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        if (nextQuestion != results) { 
-            // Display the next question if the nextQuestion is not equal to "result". This lets the quiz keep going until the result ends the quiz. 
-            document.getElementById(nextQuestion).style.display = "block"}
-            
-            else if (nextQuestion == results) {	
-                // If the nextQuestion is equal to result, then show the result. 
-    
-            document.getElementById(nextQuestion).style.display = "block"}	
-            //block allows combined statements. This allows questions and results to be displayed. 
-            
-            document.getElementById("finalResulthere").innerHTML = "<p>You should go to " + locationResult() +"!</p>";	
-                 // Post the final results to the appropriate result div. Shows user where they should go based on answers.
-            
-            if (document.getElementById("results").style.display == "block") { 
-            //these are the results for the quiz. associated with locationResulthere
-                
-                 if (locationResult == "California") {
-                             
-                 }
-                 else if (locationResult == "Bahamas") {
-                     
-                 }
-                 else if (locationResult == "Italy") {
-            
-                 }
-                 else if (locationResult == "Iceland") {
-                 
-                 }
-              }
-            }
-    
-    function locationResult() {	
-        // Get the values of the answers object 
-    
-        var theLocation = Object.keys(userAnswer).reduce(function(a, b){ return userAnswer[a].score > userAnswer[b].score ? a : b });	
-        //search for how to score personality test, rather than a typical quiz. Need values to be associated with answers. 
-        //The reduce() method reduces the array to a single value and executes a provided function for each value of the array. the retuen value is stored in total or result (W3)
-        //object.keys ...The keys() method returns an Array Iterator object with the keys of an array.(W3). a:b lets show the final result. 
-        //using the reduce method ..similiar to the bubble activity. using reduce and a>b sorts and gives value. 
-        //Returns accumlated result from the last call of the callback function (W3). Gets us the results with score value. 
-       //use return to stop the function and show the result
-        //use values of the "score" to compare other scores. The location with the highest score will be the answer. 
-        return theLocation;
-    };
-
-
-=======
-=======
->>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
         if (nextQuestion != results) {
             // Display the next question if the nextQuestion is not equal to "result". This lets the quiz keep going until the result ends the quiz.
             document.getElementById(nextQuestion).style.display = "block"}
@@ -164,7 +61,7 @@ $(document).ready(function () {
             document.getElementById(nextQuestion).style.display = "block"}
             //block allows combined statements. This allows questions and results to be displayed.
 
-            document.getElementById("finalResulthere").innerHTML = "<h1>You should go to...<h1>";
+            document.getElementById("finalResulthere").innerHTML = "<p>You should go to " + locationResult() +"!</p>";
                  // Post the final results to the appropriate result div. Shows user where they should go based on answers.
 
             if (document.getElementById("results").style.display == "block") {
@@ -202,7 +99,3 @@ $(document).ready(function () {
     }
 
 });
-<<<<<<< HEAD
->>>>>>> e59b618c81e16b6c73c8e0a83f67d5672e2598c2
-=======
->>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
