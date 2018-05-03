@@ -61,7 +61,7 @@ $(document).ready(function () {
             document.getElementById(nextQuestion).style.display = "block"}
             //block allows combined statements. This allows questions and results to be displayed.
 
-            document.getElementById("finalResulthere").innerHTML = "<p>You should go to " + locationResult() +"!</p>";
+            document.getElementById("finalResulthere").innerHTML = "<h1>You should go to...<h1>";
                  // Post the final results to the appropriate result div. Shows user where they should go based on answers.
 
             if (document.getElementById("results").style.display == "block") {
