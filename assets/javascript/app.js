@@ -8,7 +8,6 @@ var config = {
     storageBucket: "groupprojectsearch.appspot.com",
     messagingSenderId: "143073438718"
 };
-
 firebase.initializeApp(config);
 
 
@@ -84,6 +83,7 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             var results = response.statuses;
+            console.log(response)
 
             for (var i = 0; i < results.length; i++) {
                 var screen_name = response.statuses[i].user.screen_name;
@@ -94,7 +94,7 @@ $(document).ready(function () {
                     url: 'https://cors-anywhere.herokuapp.com/https://publish.twitter.com/oembed?url=https://twitter.com/' + screen_name + '/status/' + id_str
                 }).then(function (response) {
                     $('#twitter-body').append(response.html);
-                    console.log(twttr);
+                    console.log(response.html);
                     twttr.widgets.load(document.getElementById('twitter-body'))
                 })
             }
@@ -142,8 +142,8 @@ $(document).ready(function () {
     function displaySygic(city) {
         var sygicFrame = $("<iframe>").attr({
             "src": "https://guides.travel.sygic.com/production/en/" + city + "/",
-            "width": "100%",
-            "height": "500",
+            "width": "65%",
+            "height": "1500",
             "frameborder": "0"
         });
 
