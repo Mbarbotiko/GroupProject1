@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 function startQuiz() {	
     // When the button is clicked the quiz starts and the first question is shown. All other questions are hidden. Do one question at a time.  
     document.getElementById("intro").style.display = "none"; 
@@ -10,6 +11,8 @@ function startQuiz() {
     //event listener for "start quiz" button
     var userAnswer = {		
 =======
+=======
+>>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
 $(document).ready(function () {
     $('#California').hide();
     $('#Italy').hide();
@@ -26,7 +29,10 @@ $(document).ready(function () {
     document.getElementById("beginquiz").addEventListener("click", startQuiz);
     //event listener for "start quiz" button
     var userAnswer = {
+<<<<<<< HEAD
 >>>>>>> e59b618c81e16b6c73c8e0a83f67d5672e2598c2
+=======
+>>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
         //object store quiz answers. a value of 1 is given to each location when an answer associated with the location is clicked. 
         "California": { score: 0 },
         "Mexico": { score: 0 },
@@ -36,6 +42,7 @@ $(document).ready(function () {
 
     var buttons = document.querySelectorAll(".button");
     // for the button elements
+<<<<<<< HEAD
 <<<<<<< HEAD
         
     for (var i = 0 ; i < buttons.length ; i++) {	
@@ -62,6 +69,8 @@ $(document).ready(function () {
         // Hidequestions in the div
         var nextQuestion = this.parentElement.dataset.next;		
 =======
+=======
+>>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
 
     for (var i = 0 ; i < buttons.length ; i++) {
         buttons[i].onclick = buttonClicked;
@@ -86,11 +95,15 @@ $(document).ready(function () {
         // .parentElement property -- for clicking on answer (element) to hide parent elements (everything else in the question) and chanegs to next question.
         // Hidequestions in the div
         var nextQuestion = this.parentElement.dataset.next;
+<<<<<<< HEAD
 >>>>>>> e59b618c81e16b6c73c8e0a83f67d5672e2598c2
+=======
+>>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
         // shows next question in teh div when previous question is answered
         //associated with data-next html. this.parentElement uses Data attr gets the next question (parent). (W3)
         // getattribute instead?
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         if (nextQuestion != results) { 
             // Display the next question if the nextQuestion is not equal to "result". This lets the quiz keep going until the result ends the quiz. 
@@ -139,6 +152,8 @@ $(document).ready(function () {
 
 
 =======
+=======
+>>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
         if (nextQuestion != results) {
             // Display the next question if the nextQuestion is not equal to "result". This lets the quiz keep going until the result ends the quiz.
             document.getElementById(nextQuestion).style.display = "block"}
@@ -187,4 +202,7 @@ $(document).ready(function () {
     }
 
 });
+<<<<<<< HEAD
 >>>>>>> e59b618c81e16b6c73c8e0a83f67d5672e2598c2
+=======
+>>>>>>> 12374c713892c53651abf105d8ee015d4ea11aa8
