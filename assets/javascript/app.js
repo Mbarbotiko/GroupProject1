@@ -13,7 +13,8 @@ firebase.initializeApp(config);
 
 $(document).ready(function () {
     $('#whatever').hide();
-    $('#thumbsup').hide();
+    $('#thumbsup').show();
+    $('#donna').hide();
 
     // store Twitter oauth token
     var apiToken = 'AAAAAAAAAAAAAAAAAAAAAPQA5wAAAAAAKQjhIPtzVAcYycFqP5JLpj%2FydvU%3Ded6i6kHJDCSKjk26G38hqOz0NyaMFPIoy4KQcgVxIfJWuL8XCc';
@@ -25,7 +26,11 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         event.preventDefault();
-
+        $('html,body').animate({
+            scrollTop: setInterval(8000),
+            scrollTop: $("#flicker-body").offset().top
+        },
+            'slow');
         submit = $("#autocomplete").val().trim();
         database.ref().push({
             submit: submit
@@ -40,12 +45,15 @@ $(document).ready(function () {
 
     $(".suggestedCity").on("click", function (event) {
         event.preventDefault();
+        
         var inputVal = $(this).attr("id");
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
             displaySygic(inputVal);
         }
+
+        
     });
 
     database.ref().on("value", function (snapshot) {
@@ -53,16 +61,14 @@ $(document).ready(function () {
         console.log(snapshot.val().submit);
     })
 
+ 
+
+
     $("#quiz").on("click", function (event) {
         event.preventDefault();
         window.open("quiz.html");
     });
 
-    $('html,body').animate({
-        scrollTop: setInterval(8000),
-        scrollTop: $("#flicker-body").offset().top
-    },
-        'slow');
 
     function displayContent(city) {
         $("#flicker-body").empty();
