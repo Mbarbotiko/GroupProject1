@@ -1,13 +1,14 @@
 //Firebase here
-  // Initialize Firebase
-  var config = {
+// Initialize Firebase
+var config = {
     apiKey: "AIzaSyBQB6gGX9XbIKXspeGRtn1nseutybu-TKc",
     authDomain: "groupprojectsearch.firebaseapp.com",
     databaseURL: "https://groupprojectsearch.firebaseio.com",
     projectId: "groupprojectsearch",
     storageBucket: "groupprojectsearch.appspot.com",
     messagingSenderId: "143073438718"
-  };
+};
+
 firebase.initializeApp(config);
 
 
@@ -34,8 +35,9 @@ $(document).ready(function () {
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
+            displaySygic(inputVal);
         }
-   });
+    });
 
     $(".suggestedCity").on("click", function (event) {
         event.preventDefault();
@@ -43,10 +45,11 @@ $(document).ready(function () {
         // validation
         if (typeof (inputVal) == 'string') {
             displayContent(inputVal);
+            displaySygic(inputVal);
         }
     });
 
-    database.ref().on("value", function (snapshot){
+    database.ref().on("value", function (snapshot) {
         console.log(snapshot.val());
         console.log(snapshot.val().submit);
     })
@@ -55,7 +58,13 @@ $(document).ready(function () {
         event.preventDefault();
         window.open("quiz.html");
     });
-   
+
+    $('html,body').animate({
+        scrollTop: setInterval(8000),
+        scrollTop: $("#flicker-body").offset().top
+    },
+        'slow');
+
     function displayContent(city) {
         $("#flicker-body").empty();
         $("#twitter-body").empty();
@@ -128,14 +137,18 @@ $(document).ready(function () {
 
             });
 
-        $('html,body').animate({
-            scrollTop:setInterval(8000),
-            scrollTop: $("#flicker-body").offset().top
-        },
-            'slow');
-
     }
 
+    function displaySygic(city) {
+        var sygicFrame = $("<iframe>").attr({
+            "src": "https://guides.travel.sygic.com/production/en/" + city + "/",
+            "width": "100%",
+            "height": "500",
+            "frameborder": "0"
+        });
+
+        $("#sygic-body").append(sygicFrame);
+    }
 
     var countriesArray = $.map(countries, function (value, key) { return { value: value, data: key }; });
 
