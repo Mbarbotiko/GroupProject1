@@ -70,7 +70,7 @@ button {
 #flicker-body {
     justify-content: center;
     display: inline-block;
-    margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 .main-body {
@@ -132,3 +132,10 @@ button {
     height: 40% !important;
 }
 
+#weather-body {
+    margin-bottom: 10px;
+}
+
+#sygic-body {
+    margin-bottom: 10px;
+}

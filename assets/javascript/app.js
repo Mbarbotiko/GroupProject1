@@ -83,7 +83,6 @@ $(document).ready(function () {
             }
         }).then(function (response) {
             var results = response.statuses;
-            console.log(response)
 
             for (var i = 0; i < results.length; i++) {
                 var screen_name = response.statuses[i].user.screen_name;
@@ -94,7 +93,6 @@ $(document).ready(function () {
                     url: 'https://cors-anywhere.herokuapp.com/https://publish.twitter.com/oembed?url=https://twitter.com/' + screen_name + '/status/' + id_str
                 }).then(function (response) {
                     $('#twitter-body').append(response.html);
-                    console.log(response.html);
                     twttr.widgets.load(document.getElementById('twitter-body'))
                 })
             }
@@ -108,7 +106,11 @@ $(document).ready(function () {
             url: weatherURL,
             method: "GET"
         }).then(function (response) {
-            $("#weather-body").append("<h1>Weather in " + response.name + "</h1> <br> Conditions: " + response.weather[0].main + "<br> Temperature (F): " + response.main.temp + "<br> Wind: " + response.wind.speed + "<br> Humidity: " + response.main.humidity);
+            console.log(response);
+            var iconCode = response.weather[0].icon;
+            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            $("#weather-body").append("<img src='" + iconUrl + "'>");
+            $("#weather-body").append("<h1>Weather in " + response.name + "</h1> Conditions: " + response.weather[0].main + "<br> Temperature (F): " + response.main.temp + "°"+ "<br> Wind: " + response.wind.speed + " mph" + "<br> Humidity: " + response.main.humidity + "%" + response.weather[0].icon);
         });
 
         // Flickr API
@@ -119,19 +121,10 @@ $(document).ready(function () {
         })
 
             .then(function (response) {
-                console.log(response);
-                //console.log(queryURL);
-
                 var results = response.photos.photo;
                 for (var i = 0; i < results.length; i++) {
                     var flickrImage = $('<img>').addClass("imgSpace");
                     flickrImage.attr({ 'src': `https://farm${response.photos.photo[i].farm}.staticflickr.com/${response.photos.photo[i].server}/${response.photos.photo[i].id}_${response.photos.photo[i].secret}.jpg` })
-
-                    $('#flicker-body').append(flickrImage);
-
-                    console.log(results);
-                    console.log(flickrImage);
-
                     $('#flicker-body').append(flickrImage);
                 }
 
