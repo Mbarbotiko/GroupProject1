@@ -10,7 +10,10 @@ h3 {
     
 }
 
-
+.btn {
+    position: relative;
+    bottom: 80px;
+ }
 
 .question, #results {
     display: none;
