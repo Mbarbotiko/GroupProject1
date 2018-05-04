@@ -1,5 +1,5 @@
 body{
-    background-color: rgba(255, 255, 0, 0.329);
+    /* background-color: rgba(255, 255, 0, 0.329); */
 }
 
 h3 {
@@ -7,13 +7,12 @@ h3 {
 }
  h2, h3,  {
     text-align: center;
-    
 }
 
 .question, #results {
     display: none;
     text-align: center;
-    }
+}
 
 .button li {
     border: 5px solid;
@@ -41,8 +40,6 @@ ol {
     padding-left: 0;
 }
 
-
-
 #intro, .question, #results {
 	max-width: 640px;
     margin: 3em auto;
@@ -66,18 +63,18 @@ ol {
     font-size: 25px;
 }
 
-
 button {
     margin-right: 2px;
-
 }
 
 .vertical-center {
     min-height: 100vh;
+    vertical-align: baseline;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
 }
 
 .imgSpace {
@@ -94,9 +91,11 @@ button {
 }
 
 .main-body {
+    position: relative;
     padding: 30px;
     text-align: center;
     justify-content: center;
+    bottom: 475px;
 }
 
 #twitter-body {
@@ -129,7 +128,6 @@ button {
 
 .suggestedCity{
     width:100%;
-    
 }
 
 .suggestedCity:hover { 
@@ -168,3 +166,12 @@ button {
     margin-bottom: 20px;
 }
 
+.btn{
+    position: relative;
+    bottom: 80px;
+}
+
+.carousel{
+    position: static;
+    bottom: 410px;
+}

@@ -60,14 +60,6 @@ $(document).ready(function () {
 
     });
 
-    database.ref().on("value", function (snapshot) {
-        console.log(snapshot.val());
-        console.log(snapshot.val().submit);
-    })
-
-
-
-
     $("#quiz").on("click", function (event) {
         event.preventDefault();
         window.open("quiz.html");
@@ -116,11 +108,12 @@ $(document).ready(function () {
             url: weatherURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
             var iconCode = response.weather[0].icon;
             var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            $("#weather-body").append("<h2>Weather in " + response.name + "</h2>")
+            $("#weather-body").append("Conditions: " + response.weather[0].main);
             $("#weather-body").append("<img src='" + iconUrl + "'>");
-            $("#weather-body").append("<h1>Weather in " + response.name + "</h1> Conditions: " + response.weather[0].main + "<br> Temperature (F): " + response.main.temp + "°"+ "<br> Wind: " + response.wind.speed + " mph" + "<br> Humidity: " + response.main.humidity + "%" + response.weather[0].icon);
+            $("#weather-body").append("<br>Temperature (F): " + response.main.temp + "°" + "<br> Wind: " + response.wind.speed + " mph" + "<br> Humidity: " + response.main.humidity + "%");
         });
 
         // Flickr API
