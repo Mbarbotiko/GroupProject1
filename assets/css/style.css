@@ -3,8 +3,6 @@
     
 }
 
-
-
 .question, #results {
     display: none;
     text-align: center
@@ -118,8 +116,6 @@ button {
     cursor:pointer;
 }
 
-
-
 #donna, #whatever, #thumbsup{
     position: relative;
     left:10%;
@@ -131,6 +127,7 @@ button {
 #carouselExampleControls h1{
     text-align: center;
 }
+
 .twitter-tweet{
     display: inline-block !important;
     float: left !important;
