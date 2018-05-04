@@ -78,7 +78,8 @@ button {
 }
 
 .vertical-center {
-    min-height: 100vh;
+    height: 200px;
+    margin-top: 250px;
     align-items: center;
     display: flex;
     flex-direction: column;
