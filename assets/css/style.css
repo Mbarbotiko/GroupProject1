@@ -1,3 +1,10 @@
+body{
+    background-color: rgba(255, 255, 0, 0.329);
+}
+
+h3 {
+    font-size: 22px;
+}
  h2, h3,  {
     text-align: center;
     
@@ -5,51 +12,64 @@
 
 .question, #results {
     display: none;
-    text-align: center
+    text-align: center;
     }
 
 .button li {
-    border: 1px solid;
-    border-radius: 1px;
-    background-color: #eee;
+    border: 5px solid;
+    background-color: white;
     text-align: center;
-    line-height: 2em;
+    line-height: 3em;
     padding: 0.2em;
     margin: 0.8em;
-    width: 30%;
+    width: 50%;
     margin: 0 auto;
     list-style: none;
+    font-family: 'Comfortaa', cursive;
+    font-size: 18px;
+    border-color: red;
 
 }
 
 .button li:hover {
-    color: #bfbfbf;
-    background-color: #555;
-    text-align: center
+/* designs the hover over answer */
+    background-color: rgb(209, 202, 202);
+    text-align: center;
 }
+
+ol {
+    padding-left: 0;
+}
+
+
 
 #intro, .question, #results {
 	max-width: 640px;
     margin: 3em auto;
-    text-align: center
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
 }
 
 #beginquiz {
-    border: 1px solid;
-    border-radius: 3px;
     background-color: #eee;
     text-align: center;
-    line-height: 2em;
+    line-height: 3em;
     padding: 0.5em;
     margin: 0.5em;
     width: 20em;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Comfortaa', cursive;
+    border: 5px solid;
+    border-color: red; 
+    font-size: 25px;
 }
 
 
 button {
     margin-right: 2px;
+
 }
 
 .vertical-center {
@@ -128,6 +148,14 @@ button {
     text-align: center;
 }
 
+#happy {
+    position: absolute;
+    right:0px;
+    bottom:10px;
+    z-index:-1;
+    width:300px;
+}
+
 .twitter-tweet{
     display: inline-block !important;
     float: left !important;
@@ -137,9 +165,6 @@ button {
 }
 
 #weather-body {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-#sygic-body {
-    margin-bottom: 10px;
-}
