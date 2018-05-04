@@ -83,7 +83,7 @@ $(document).ready(function () {
         // Twitter API
         var inputVal = city;
         var queryURL = "https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/search/tweets.json?q="
-            + inputVal + "&result_type=popular";
+            + inputVal + "&result_type=popular&count=12";
 
         $.ajax({
             url: queryURL,
